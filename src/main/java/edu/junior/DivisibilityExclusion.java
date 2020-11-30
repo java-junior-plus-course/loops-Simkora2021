@@ -25,23 +25,103 @@ public class DivisibilityExclusion {
 
     public int[] removeOdd() {
         // TODO: Remove all odd numbers from the array with for loop
-        throw new UnsupportedOperationException();
+        int length = numbers.length;  //9
+        int count = 0;
+        for (int index = 0; index < length; index++) {   // 0<9
+            if (numbers[index] % 2 != 0) {   /// element massiva делится на 3 без остатка
+                count++;  // считаем кол-во подходящих вариантов
+            }// счётчик
+        }
+        int index = 0;
+        int[] r = new int[length - count];
+        for (int j = 0; j < length; j++) {
+            if (numbers[j] % 2 == 0) {
+                r[index++] = numbers[j];
+            }
+        }
+        return r;
     }
 
     public int[] removeEven() {
         // TODO: Remove all even numbers from the array with for-each loop
-        throw new UnsupportedOperationException();
+        int length = numbers.length;  //9
+        int count = 0;
+        for (int index : numbers) {   // 0<9
+            if (index % 2 == 0) {   /// element massiva делится на 3 без остатка
+                count++;  // считаем кол-во подходящих вариантов
+            }// счётчик
+        }
+        int index = 0;
+        int[] r = new int[length - count];
+        for (int j: numbers) {
+            if (j % 2 != 0) {
+                r[index++] = j;
+            }
+        }
+        return r;
     }
+
 
     public int[] removeEvenOrOdd(boolean odd) {
         // TODO: Remove all odd or even numbers (based on the second argument) from the array with for-each loop
-        throw new UnsupportedOperationException();
+        int length = numbers.length;  //9
+        int count = 0;
+        int[] r = new int[length - count];
+        for (int i: numbers) {
+            if (numbers[1] % 2 == 0) {
+                for (int index : numbers) {   // 0<9
+                    if (index % 2 == 0) {   /// element massiva делится на 3 без остатка
+                        count++;  // считаем кол-во подходящих вариантов
+                    }// счётчик
+                }
+                int index = 0;
+                for (int j: numbers) {
+                    if (j % 2 != 0) {
+                        r[index++] = j;
+                    }
+                }
+
+            } else {
+                for (int index: numbers) {
+                    if (index % 2 != 0) {
+                        count++;
+                    }
+                }
+                int index = 0;
+                for (int j:numbers) {
+                    if (j % 2 == 0) {
+                        r[index++] = j;
+                    }
+                }
+            }
+        }
+        return r;
     }
+
 
     public int[] removeDivisibleByThree() {
         // TODO: Remove all numbers which are divisible by three from the array with while or do-while loop
-        throw new UnsupportedOperationException();
+        int index = 0;
+        int length = numbers.length;  //9
+        int count = 0;
+        while (index < length) {   // 0<9
+            if (numbers[index] % 3 == 0) {   /// element massiva делится на 3 без остатка    [1,2,3,4,5,6,7,8,9]
+                count++;  // считаем кол-во подходящих вариантов 4
+            }
+            index++;    // счётчик
+        }
+        int j = 0;
+        index = 0;
+        int[] r = new int[length - count]; /// 6 чисел
+        while (j < length) {
+            if (numbers[j] % 3 != 0) {
+                r[index++] = numbers[j];
+            }
+            j++;
+        }
+        return r;
     }
+
 
     public int[] removeDivisible(int divisor) {
         // TODO: Remove all numbers which are divisible by the second argument
